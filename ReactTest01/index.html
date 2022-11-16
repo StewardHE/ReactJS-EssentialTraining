@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <title>React ⚛️</title>
+  
+  
+  </head>
+  <body>
+
+
+    <div id="root"></div>
+
+    
+    <script type="text/babel">
+      // this is header component
+      function Header(props) {
+        console.log(props);
+        return (
+          <header>
+            <h1>{props.name}'s Kitchen</h1>
+          </header>
+        );
+      }
+      // Main component, this is the principal part of the app 
+      function Main(props) {
+        return (
+          <section>
+            
+            <ul>
+              {dishes.map((dish) => (
+                <li>{dish}</li>
+              ))}
+              </ul>
+            
+          </section>
+        );
+      }
+
+      // This is a secundary element, for testing purposes
+      function Secundary(props){
+        return (
+          <section>
+            
+            <p>
+              <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Repellendus harum ex, nihil nulla repellat nemo omnis ab 
+              enim velit dolores eos modi reiciendis architecto vitae 
+              autem magnam <br/><br/> </b> { props.adjective }
+            </p>
+            </section> 
+          
+        );
+      }
+      // footer
+      function Footer(props) {
+        return (
+        <footer>
+          <p>Copyright {props.year} </p>
+          </footer>
+        );
+      }
+
+
+      // This is a list of dishes
+      const dishes = [
+        "Black bean Soup",
+        "Macaroni and cheese",
+        "Salmon and Potatoes",
+        "Caribbean Food",
+        "Rice and chicken",
+        "SeaFood"
+      ];
+
+      // this is a component called App, this contains all the components to render all in a unique component
+      // this component is for display all the components
+      function App() {
+        return (
+          <div>
+            <Header name="Bryan"/>
+            <Main  dishes="dishes" />
+            <Secundary adjective="Alejandre mandro mis micalhas aliquam aperiam? Lorem IPsum" />
+            <Footer year={new Date().getFullYear()}/>
+          </div>
+        );
+      }
+
+      
+      
+      ReactDOM.render(
+        <App />,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+
+</html>
